@@ -2,6 +2,13 @@
 
 EmergenceSystem filter that searches arXiv and returns scientific preprints as embryos.
 
+
+<!-- emergence-context -->
+Part of **[EmergenceSystem](https://github.com/EmergenceSystem)** — a distributed
+discovery network of small, single-source agents. This filter joins the em_pop gossip
+mesh and answers `POST /agent/query`; Emquest fans each query out to many filters in
+parallel and aggregates the results.
+
 ## API
 
 Queries the [arXiv API](http://export.arxiv.org/api/query) Atom feed. Free, no API key required.
