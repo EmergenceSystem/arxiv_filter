@@ -1,15 +1,25 @@
 {application, arxiv_filter, [
-    {description, "em_filter agent for arXiv preprint search"},
+    {description, "em_filter example for arXiv preprint search"},
     {vsn, "0.1.0"},
-    {registered, []},
+    {registered, [arxiv_filter_sup, arxiv_filter_server]},
     {mod, {arxiv_filter_app, []}},
     {applications, [
         kernel,
         stdlib,
+        ssl,
+        inets,
+        cowboy,
         em_filter
     ]},
-    {env, []},
-    {modules, []},
+    {env, [
+        {pop_port,   0},
+        {query_port, 0},
+        {pop_seeds,  []}
+    ]},
+    {modules, [
+        arxiv_filter_sup,
+        arxiv_filter_server
+    ]},
     {licenses, ["Apache-2.0"]},
     {links, [{"GitHub", "https://github.com/EmergenceSystem/arxiv_filter"}]}
 ]}.
