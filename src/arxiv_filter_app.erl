@@ -164,6 +164,7 @@ parse_entry(EntryXml) ->
                     <<"url">>    => list_to_binary(Url),
                     <<"resume">> => list_to_binary(Resume),
                     <<"title">>  => list_to_binary(clean_text(Title)),
+                    <<"doc_type">> => <<"pdf">>,
                     <<"source">> => <<"arxiv.org">>
                 }
             }}
@@ -177,7 +178,9 @@ extract_tag(Tag, Xml) ->
     end.
 
 normalize_url("http://arxiv.org/abs/" ++ Rest) ->
-    "https://arxiv.org/abs/" ++ Rest;
+    "https://arxiv.org/pdf/" ++ Rest;
+normalize_url("https://arxiv.org/abs/" ++ Rest) ->
+    "https://arxiv.org/pdf/" ++ Rest;
 normalize_url(Url) ->
     Url.
 
